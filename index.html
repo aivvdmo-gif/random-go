@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>RANDOM JUMP</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+    }
+    #btn {
+      padding: 18px 40px;
+      border: 3px solid black;
+      background: white;
+      font-size: 22px;
+      cursor: pointer;
+      letter-spacing: 2px;
+      transition: 0.15s;
+    }
+    #btn:hover {
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btn">PUSH</button>
+
+  <script>
+    const sites = [
+
+      /* --- Wikipedia / 辞書系 --- */
+      {url: "https://ja.wikipedia.org/wiki/量子力学", name: "Wikipedia: 量子力学"},
+      {url: "https://ja.wikipedia.org/wiki/相対性理論", name: "Wikipedia: 相対性理論"},
+      {url: "https://ja.wikipedia.org/wiki/美学", name: "Wikipedia: 美学"},
+      {url: "https://ja.wikipedia.org/wiki/脳科学", name: "Wikipedia: 脳科学"},
+      {url: "https://ja.wikipedia.org/wiki/存在論", name: "Wikipedia: 存在論"},
+      {url: "https://en.wikipedia.org/wiki/Chaos_theory", name: "Chaos Theory"},
+      {url: "https://en.wikipedia.org/wiki/Artificial_intelligence", name: "AI"},
+
+      /* --- YouTubeミーム系 --- */
+      {url: "https://www.youtube.com/watch?v=2Z4m4lnjxkY", name: "Nyan Cat"},
+      {url: "https://www.youtube.com/watch?v=ZZ5LpwO-An4", name: "He-man"},
+      {url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", name: "Rickroll"},
+      {url: "https://www.youtube.com/watch?v=QH2-TGUlwu4", name: "Nyan Cat HD"},
+      {url: "https://www.youtube.com/watch?v=ub82Xb1C8os", name: "Trololo"},
+      {url: "https://www.youtube.com/watch?v=j5a0jTc9S10", name: "Keyboard Cat"},
+      {url: "https://www.youtube.com/watch?v=oHg5SJYRHA0", name: "Classic Rickroll"},
+
+      /* --- インタラクティブ・チープ --- */
+      {url: "http://www.staggeringbeauty.com", name: "Staggering Beauty"},
+      {url: "http://www.omfgdogs.com", name: "OMFG Dogs"},
+      {url: "http://www.koalastothemax.com", name: "Koalas to the Max"},
+      {url: "http://www.pointerpointer.com", name: "Pointer Pointer"},
+      {url: "http://www.trypap.com", name: "Trypap"},
+      {url: "http://www.fallingfalling.com", name: "Falling Falling"},
+      {url: "http://www.yesno.wtf", name: "Yes or No"},
+      {url: "http://www.ismycomputeron.com", name: "Is My Computer On?"},
+      {url: "http://www.howmanypeopleareinspacerightnow.com", name: "People in Space"},
+
+      /* --- ホラー／不思議系 --- */
+      {url: "https://creepypasta.fandom.com/wiki/Main_Page", name: "Creepypasta"},
+      {url: "https://www.scaryforkids.com", name: "Scary for Kids"},
+      {url: "https://www.horrorpedia.com", name: "Horrorpedia"},
+
+      /* --- 奇妙・楽しい --- */
+      {url: "http://www.republiquedesmangues.fr", name: "Mango Republic"},
+      {url: "http://www.thatsthefinger.com", name: "That’s the Finger"},
+      {url: "http://www.zoomquilt.org", name: "Zoomquilt"},
+      {url: "http://www.heeeeeeeey.com", name: "Heeeeeey"},
+
+      /* --- 日本ローカル／個人系 (実在するもののみ) --- */
+      {url: "https://ameblo.jp/", name: "AmebaブログTOP"},
+      {url: "https://note.com/", name: "note"},
+      {url: "https://blog.goo.ne.jp/", name: "gooブログ"},
+      {url: "https://fc2.com/", name: "FC2"},
+      {url: "https://www.scoop.it/", name: "Scoop IT"},
+
+      /* --- ニュース系（日本） --- */
+      {url: "https://www3.nhk.or.jp/news/", name: "NHKニュース"},
+      {url: "https://www.asahi.com/", name: "朝日新聞"},
+      {url: "https://www.yomiuri.co.jp/", name: "読売新聞"},
+      {url: "https://mainichi.jp/", name: "毎日新聞"},
+      {url: "https://www.nikkei.com/", name: "日経新聞"},
+
+      /* --- ニュース系（海外） --- */
+      {url: "https://cnn.com", name: "CNN"},
+      {url: "https://bbc.com/news", name: "BBC News"},
+      {url: "https://theguardian.com", name: "The Guardian"},
+      {url: "https://nytimes.com", name: "NY Times"},
+      {url: "https://apnews.com", name: "AP News"},
+
+      /* --- 行方不明者系（実在ページのみ） --- */
+      {url: "https://www.police.pref.osaka.lg.jp/kurashi/kenkou/3/7290.html", name: "大阪府警 行方不明者情報"},
+      {url: "https://www.npa.go.jp/bureau/safetylife/kikaku/missing/index.html", name: "警察庁 失踪者情報"},
+
+    ];
+
+    /* -------------------- ランダム処理 -------------------- */
+    let remaining = [...sites];
+
+    document.getElementById("btn").addEventListener("click", () => {
+      if (remaining.length === 0) {
+        alert("Updating...Please wait");
+        return;
+      }
+      const index = Math.floor(Math.random() * remaining.length);
+      const site = remaining.splice(index, 1)[0];
+      window.open(site.url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
