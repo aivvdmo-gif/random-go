@@ -175,6 +175,8 @@ const logsEl = document.getElementById("logs");
 let logCount = 0;
 let firstClick = true;
 
+logsEl.innerHTML = "0. 0m 0s"
+
 // 前のサイトの滞在時間をログに追加
 function addLog() {
   const now = Date.now();
