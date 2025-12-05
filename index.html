@@ -25,18 +25,27 @@
       color: white;
     }
 
-    #counter{
+    #counter {
       margin-top: 40px;
       font-size: 18px;
       letter-spacing: 1px;
-      coler: #333;
+      color: #333;
+    }
+
+    #timer {
+      margin-top: 40px;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
 
   <button id="btn">PUSH</button>
 
-  <div id="counter">Opened: 0</div>
+  <div id="counter">Opened: 0</div> 
+  <div id="timer">Time spent: 0m 0s</div>
 
   <script>
     const sites = [
@@ -173,6 +182,7 @@
       document.getElementById("timer").innerText =
         `Time spent: ${minutes}m ${seconds}s`;
     }
+    setInterval(updataTimer, 1000);
       
     let remaining = [...sites];
 
