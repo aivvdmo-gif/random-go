@@ -39,6 +39,7 @@
 
   <div id="counter">Opened: 0</div> 
   <div id="timer">Time spent: 0m 0s</div>
+  <div id="logs"></div>
 
   <script>
     const sites = [
@@ -162,6 +163,25 @@
       
  
     ];
+    let lastOpenTime = Date.now();  // 前回サイトを開いた時刻
+const logsEl = document.getElementById("logs");
+let logCount = 0;
+
+// 前のサイトの滞在時間をログに追加
+function addLog() {
+  const now = Date.now();
+  const diff = Math.floor((now - lastOpenTime) / 1000);
+  const minutes = Math.floor(diff / 60);
+  const seconds = diff % 60;
+
+  logCount++;
+
+  const entry = document.createElement("div");
+  entry.innerText = `${logCount}. ${minutes}m ${seconds}s`;
+  logsEl.appendChild(entry);
+
+  lastOpenTime = now;
+}
 
     /* -------------------- ランダム処理 -------------------- */
     let startTime = Date.now();
@@ -183,6 +203,7 @@
     const counterEl = document.getElementById("counter");
 
     document.getElementById("btn").addEventListener("click", () => {
+      addLog();
       if (remaining.length === 0) {
         alert("☆Updating...Please wait⭐︎");
         return;
