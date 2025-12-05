@@ -213,10 +213,8 @@ function addLog() {
     const counterEl = document.getElementById("counter");
 
     document.getElementById("btn").addEventListener("click", () => {
-      if(!firstClick){
+      
         addLog();
-      }
-      firstClick = false;
       
       if (remaining.length === 0) {
         alert("☆Updating...Please wait⭐︎");
