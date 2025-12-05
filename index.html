@@ -162,6 +162,17 @@
     ];
 
     /* -------------------- ランダム処理 -------------------- */
+    let startTime = Date.now();
+
+    function updateTimer() {
+      const now = Date.now();
+      const diff = Math.floor((now-startTime)/1000);
+      const minutes = Math.floor(diff/60);
+      const seconds = diff % 60;
+
+      document.getElementById("timer").innerText =
+        `Time spent: ${minutes}m ${seconds)s`;
+      
     let remaining = [...sites];
 
     let openedCount = 0;
