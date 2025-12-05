@@ -9,7 +9,7 @@
       color: black;
       font-family: Arial, sans-serif;
       text-align: center;
-      margin-top: 80px;
+      margin-top: 140px;
     }
     #btn {
       padding: 18px 40px;
@@ -24,11 +24,16 @@
       background: black;
       color: white;
     }
+
+    #counter{
+      margin-top
   </style>
 </head>
 <body>
 
   <button id="btn">PUSH</button>
+
+  <div id="counter">Opened: 0</div>
 
   <script>
     const sites = [
@@ -103,6 +108,9 @@
     /* -------------------- ランダム処理 -------------------- */
     let remaining = [...sites];
 
+    let openedCount = 0;
+    const counterEl = document.getElementById("counter");
+
     document.getElementById("btn").addEventListener("click", () => {
       if (remaining.length === 0) {
         alert("☆Updating...Please wait⭐︎");
@@ -111,7 +119,11 @@
       const index = Math.floor(Math.random() * remaining.length);
       const site = remaining.splice(index, 1)[0];
       window.open(site.url, "_blank");
+
+      openedCount++;
+      counterEl.textContent = `Opened: ${openedCount}`;
     });
+    
   </script>
 
 </body>
